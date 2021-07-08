@@ -1,0 +1,57 @@
+.userStatus {
+  background-color: #333;
+  width: 200px;
+  height: 300px;
+  color: #eee;
+  padding: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.nombreUsuario {
+  h3 {
+    margin: 0px 0px 0px 10px;
+  }
+
+  p {
+    margin: 0px 0px 0px 25px;
+    font-size: 1.2rem;
+  }
+}
+
+.puntosUsuario {
+  margin-top: 20px;
+  h3 {
+    margin: 0px 0px 0px 10px;
+  }
+  p {
+    margin: 0px 0px 0px 25px;
+    font-size: 1.2rem;
+  }
+}
+
+.dadosJuntados {
+  margin-top: 20px;
+
+  h3 {
+    margin: 0px 0px 0px 10px;
+  }
+  p {
+    margin: 0px 0px 0px 25px;
+    font-size: 1.2rem;
+  }
+}
+
+.dadosGuardados{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.siluetaDado{
+  height: 50px;
+  width: 50px;
+  border: 2px dotted rgb(80, 80, 80);
+  margin-bottom: 9px;
+}

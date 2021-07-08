@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import UserModal from "./components/UserModal/UserModal";
+
 import { UserNameProvider } from "./context/userContex";
 import Tablero from "./pages/Tablero/Tablero";
+import UserModal from "./pages/UserModal/UserModal";
 
 const App = () => {
   return (

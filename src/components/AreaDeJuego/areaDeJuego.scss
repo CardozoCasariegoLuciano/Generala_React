@@ -1,0 +1,27 @@
+.areaDeDados {
+  height: 60vh;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px dotted gold;
+  box-sizing: border-box;
+}
+
+.dadosSection {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.unDado {
+}
+
+.dado,
+.dadoDefault {
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 4.5rem;
+}
+.dado:hover {
+  border-bottom: 2px solid gold;
+  cursor: pointer;
+}

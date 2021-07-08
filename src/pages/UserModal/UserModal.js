@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import UserNameContext from "../../context/userContex";
 
 const UserModal = () => {
-  const { setName } = useContext(UserNameContext);
+  const { user ,setUser } = useContext(UserNameContext);
   const history = useHistory();
   const [userName, setUserName] = useState("");
 
@@ -16,9 +16,9 @@ const UserModal = () => {
     e.preventDefault();
 
     if(userName === ""){
-        setName("Jugador anonimo")
+      setUser({...user, nombre:"Jugador anonimo"})
     }else{
-        setName(userName)
+      setUser({...user, nombre: userName})
     }
     
     history.push("/juego");

@@ -2,13 +2,18 @@ import React, { createContext, useState } from "react";
 
 const UserNameContext = createContext();
 
-const UserNameProvider = ({ children }) => {   
+const UserNameProvider = ({ children }) => {
+  const [user, setUser] = useState({
+    nombre: "",
+    puntos: 0,
+    dadosSelecionados: ["", "", "", "", ""],
+  });
 
-  const [name, setName] = useState("");  
+  const data = { user, setUser };
 
-  const data = { name, setName};
-
-  return <UserNameContext.Provider value={data}>{children}</UserNameContext.Provider>;
+  return (
+    <UserNameContext.Provider value={data}>{children}</UserNameContext.Provider>
+  );
 };
 
 export { UserNameProvider };
