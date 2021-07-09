@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AreaDeJuego from "../../components/AreaDeJuego/AreaDeJuego";
 import UserStatus from "../../components/UserStatus/UserStatus";
+import { getMaxCombination } from "../../utils/functions";
 
 import "./Tablero.scss";
 
 const Tablero = () => {
+  const [dados, setDados] = useState([0, 0, 0, 0, 0]);
 
-  const [dados, setDados] = useState([0,0,0,0,0])
+  const generarDados = () => {
+    setDados(dados.map((n) => Math.floor(Math.random() * 6) + 1));
 
-  useEffect(() => {
-    
-  },[dados])
-
-
-  const generarDados = () => {    
-
-    let final = dados.map((n) => Math.floor(Math.random() * 6) + 1);
-
-    setDados(final)    
+    console.log(getMaxCombination(dados)); 
+    // la lista de dados que muestra en consola esta atrasada respcto a lo que se muestra en pantalla.
+    // si saco ese log de la funcion, el codigo deja de funcionar y no se por que
+    //Pasa lo mismo si esto lo hago en el componente "AreaDeJuego" usando la lista que paso por props
   };
-  
+
   return (
     <div className="Tablero">
       <div className="datosDelUsuario">
@@ -30,7 +27,7 @@ const Tablero = () => {
       </div>
 
       <div className="areaDeJuego">
-          <AreaDeJuego dados={dados}/>
+        <AreaDeJuego dados={dados} />
       </div>
     </div>
   );

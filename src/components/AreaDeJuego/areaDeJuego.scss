@@ -15,13 +15,21 @@
 .unDado {
 }
 
-.dado,
+.dado {
+  box-sizing: border-box;  
+  font-size: 4.5rem;  
+
+  &:hover {
+    border-bottom: 2px solid gold;
+    cursor: pointer;
+  }
+}
 .dadoDefault {
   box-sizing: border-box;
   color: #eee;
   font-size: 4.5rem;
 }
-.dado:hover {
-  border-bottom: 2px solid gold;
-  cursor: pointer;
+
+.marcado {
+  color: #eee;  
 }

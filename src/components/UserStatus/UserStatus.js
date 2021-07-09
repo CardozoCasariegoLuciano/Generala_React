@@ -18,13 +18,23 @@ const UserStatus = () => {
       </div>
 
       <div className="dadosJuntados">
-        <h3>Dados:</h3>
-        <div className="dadosGuardados">
-          {user.dadosSelecionados.map((elem, ind) => (
-            <div className="siluetaDado" key={ind}>
-              {elem}
+        <h3>Dados guardados:</h3>
+        <div className="dadosGuardados">         
+          <div className="siluetaDado">
+              {user.dadosSelecionados[0]}
             </div>
-          ))}
+            <div className="siluetaDado">
+            {user.dadosSelecionados[1]}
+            </div>
+            <div className="siluetaDado">
+            {user.dadosSelecionados[2]}
+            </div>
+            <div className="siluetaDado">
+            {user.dadosSelecionados[3]}
+            </div>
+            <div className="siluetaDado">
+            {user.dadosSelecionados[4]}
+            </div>
         </div>
       </div>
     </div>
