@@ -6,7 +6,7 @@ const UserNameProvider = ({ children }) => {
   const [user, setUser] = useState({
     nombre: "",
     puntos: 0,
-    dadosSelecionados: ["", "", "", "", ""],
+    dadosSelecionados: [],
   });
 
   const data = { user, setUser };

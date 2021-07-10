@@ -10,26 +10,37 @@
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+  position: relative;
 }
 
-.unDado {
-}
-
-.dado {
-  box-sizing: border-box;  
-  font-size: 4.5rem;  
+.dadoTablero {
+  font-size: 4.5rem;
 
   &:hover {
-    border-bottom: 2px solid gold;
+    transform: scale(1.2);
     cursor: pointer;
   }
 }
-.dadoDefault {
-  box-sizing: border-box;
-  color: #eee;
-  font-size: 4.5rem;
+
+.disableDice {
+  opacity: 0.5;
 }
 
-.marcado {
-  color: #eee;  
+.btnsection {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.guardarDados {
+  background-color: #eee;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.jugarMesa {
+  background-color: #eee;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
 }

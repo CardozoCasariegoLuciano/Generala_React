@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import UserNameContext from "../../context/userContex";
+import { convertirDado } from "../../utils/functions";
 import "./userStatus.scss";
 
 const UserStatus = () => {
-  const { user } = useContext(UserNameContext);  
+  const { user } = useContext(UserNameContext);
 
   return (
     <div className="userStatus">
@@ -19,22 +20,22 @@ const UserStatus = () => {
 
       <div className="dadosJuntados">
         <h3>Dados guardados:</h3>
-        <div className="dadosGuardados">         
+        <div className="dadosGuardados">
           <div className="siluetaDado">
-              {user.dadosSelecionados[0]}
-            </div>
-            <div className="siluetaDado">
-            {user.dadosSelecionados[1]}
-            </div>
-            <div className="siluetaDado">
-            {user.dadosSelecionados[2]}
-            </div>
-            <div className="siluetaDado">
-            {user.dadosSelecionados[3]}
-            </div>
-            <div className="siluetaDado">
-            {user.dadosSelecionados[4]}
-            </div>
+            {convertirDado(Number(user.dadosSelecionados[0]), "dadoGuardado")}
+          </div>
+          <div className="siluetaDado">
+            {convertirDado(Number(user.dadosSelecionados[1]), "dadoGuardado")}
+          </div>
+          <div className="siluetaDado">
+            {convertirDado(Number(user.dadosSelecionados[2]), "dadoGuardado")}
+          </div>
+          <div className="siluetaDado">
+            {convertirDado(Number(user.dadosSelecionados[3]), "dadoGuardado")}
+          </div>
+          <div className="siluetaDado">
+            {convertirDado(Number(user.dadosSelecionados[4]), "dadoGuardado")}
+          </div>
         </div>
       </div>
     </div>
