@@ -90,7 +90,9 @@ $headerHeigth1000px: 90px;
   color: $colorTexto;
   height: $headerHeigth;
 
-  margin-left: 150px;
+  margin-left: 150px;  
+
+  
 
   h3 {
     span {
@@ -198,6 +200,8 @@ $headerHeigth1000px: 90px;
 
   .jugadorYPuntos {
     margin-left: 50px;
+    position: relative;
+  top: -10px;
   }
   .dadosJuntados {
     position: absolute;

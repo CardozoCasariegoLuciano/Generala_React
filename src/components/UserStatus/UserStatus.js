@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import GameContext from "../../context/gameContext";
 import UserNameContext from "../../context/userContex";
 import {
+  chequeoDeTurnos,
   convertirDado,
   dadosDelUser,
+  getDificultad,
   getMaxCombination,
+  toggleBtnUserStatus,
+  turnosRestantes,
 } from "../../utils/functions";
 import "./userStatus.scss";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
@@ -18,33 +22,12 @@ const UserStatus = () => {
   const [showDice, setShowDice] = useState(false);
 
   useEffect(() => {
-    toggleBtn();
-  }, [game.tiradasEnElTurno, user.dadosSelecionados]);
-
-  const toggleBtn = () => {
-    const butTirar = document.getElementById("btn-tirar");
-    const butFinalizar = document.getElementById("btn-finalizar");
-
-    if (game.tiradasEnElTurno === 0 && game.historial.length < 2) {
-      butTirar.classList.add("brillar");
-    } else {
-      butTirar.classList.remove("brillar");
-    }
-
-    if (game.tiradasEnElTurno >= 3 || user.dadosSelecionados.length === 5) {
-      butTirar.classList.add("disableBTN");
-    } else {
-      butTirar.classList.remove("disableBTN");
-    }
-
-    if (user.dadosSelecionados.length === 0) {
-      butFinalizar.classList.add("disableBTN");
-    } else {
-      butFinalizar.classList.remove("disableBTN");
-    }
-
-    console.log(butTirar);
-  };
+    toggleBtnUserStatus(
+      game.tiradasEnElTurno,
+      game.historial.length,
+      user.dadosSelecionados.length
+    );
+  }, [game.tiradasEnElTurno, user.dadosSelecionados]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const generarDados = () => {
     if (game.tiradasEnElTurno !== 3 && user.dadosSelecionados.length !== 5) {
@@ -75,10 +58,14 @@ const UserStatus = () => {
       });
 
       setGame({
+        ...game,
         dadosDeLaRonda: [0, 0, 0, 0, 0],
         historial: game.historial.concat([data]),
         tiradasEnElTurno: 0,
       });
+
+      const turnosFaltantes = turnosRestantes(game);
+      chequeoDeTurnos(turnosFaltantes);
     }
   };
 
@@ -101,7 +88,10 @@ const UserStatus = () => {
 
           <div className="puntosUsuario">
             <h3>
-              Puntos: <span>{user.puntos}</span>
+              Puntos:{" "}
+              <span>
+                {user.puntos} / {getDificultad(game.dificultad).obejetivo}
+              </span>
             </h3>
           </div>
         </div>

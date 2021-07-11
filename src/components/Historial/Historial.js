@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import GameContext from "../../context/gameContext";
 import "./Historial.scss";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
-import { convertirDado } from "../../utils/functions";
+import { convertirDado, getDificultad } from "../../utils/functions";
 
 const Historial = () => {
   const { game } = useContext(GameContext);
@@ -24,6 +24,9 @@ const Historial = () => {
         </div>
       </div>
       <div className="historialData">
+      <h3>
+          Dificultad: <span>{getDificultad(game.dificultad).dificuldat}</span>
+        </h3>
         <h3>
           Turnos jugados: <span>{game.historial.length}</span>
         </h3>

@@ -2,9 +2,12 @@ import UserNameContext from "../../context/userContex";
 
 import React, { useContext, useEffect, useState } from "react";
 import {
+  chequeoDeTurnos,
   convertirDado,
   getMaxCombination,
   setDStyles,
+  toggleBtnAreaDeJuego,
+  turnosRestantes,
 } from "../../utils/functions";
 import "./areaDeJuego.scss";
 import "./dicePosition.scss";
@@ -18,30 +21,11 @@ const AreaDeJuego = () => {
   const valoresGuardados = [];
 
   const [dadosEnElTablero, setDadosEnElTablero] = useState([]);
-  const [selectDice, setselectDice] = useState(false);
 
   useEffect(() => {
     setDadosEnElTablero(game.dadosDeLaRonda);
-
-    toggleBtn();
-  }, [game.dadosDeLaRonda]);
-
-  const toggleBtn = () => {
-    const butGrd = document.getElementById("guardarDados");
-    const butJugarMs = document.getElementById("jugarMesa");
-
-    if (valoresGuardados.length === 0) {
-      butGrd.classList.add("disableBTN");
-    } else {
-      butGrd.classList.remove("disableBTN");
-    }
-
-    if (game.dadosDeLaRonda.every((elem) => elem === 0)) {
-      butJugarMs.classList.add("disableBTN");
-    } else {
-      butJugarMs.classList.remove("disableBTN");
-    }
-  };
+    toggleBtnAreaDeJuego(valoresGuardados.length, game.dadosDeLaRonda);
+  }, [game.dadosDeLaRonda]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const selecionarDado = (undado, ind) => {
     if (undado !== 0) {
@@ -61,7 +45,7 @@ const AreaDeJuego = () => {
         valoresGuardados.push(valodDado);
         aDice.classList.add("disableDice");
       }
-      toggleBtn();
+      toggleBtnAreaDeJuego(valoresGuardados.length, game.dadosDeLaRonda);
     }
   };
 
@@ -92,12 +76,16 @@ const AreaDeJuego = () => {
       });
 
       setGame({
+        ...game,
         dadosDeLaRonda: [0, 0, 0, 0, 0],
         historial: game.historial.concat([data]),
         tiradasEnElTurno: 0,
       });
 
       setDadosEnElTablero([0, 0, 0, 0, 0]);
+
+      const turnosFaltantes = turnosRestantes(game);
+      chequeoDeTurnos(turnosFaltantes);
     }
   };
 
@@ -106,6 +94,10 @@ const AreaDeJuego = () => {
       <div className="btnsection">
         <div className="guardarDados" onClick={guardadDados} id="guardarDados">
           Guardar dados
+        </div>
+
+        <div className="ContadorDeTurnos" id="ContadorDeTurnos">
+          Turnos restantes <br /> {turnosRestantes(game)}
         </div>
 
         <div className="jugarMesa" onClick={jugarDeLaMesa} id="jugarMesa">

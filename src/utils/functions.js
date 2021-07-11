@@ -40,8 +40,6 @@ export const convertirDado = (unNumero, unaClase) => {
 };
 
 export const getMaxCombination = (lista) => {
-
-  
   let listaDeDados = lista.map((num) => Number(num));
 
   let ret = {
@@ -86,7 +84,6 @@ export const setDStyles = (undado, ind) => {
   return ret;
 };
 
-
 export const dadosDelUser = (listaDeDados, cant) => {
   const ret = listaDeDados;
 
@@ -95,4 +92,121 @@ export const dadosDelUser = (listaDeDados, cant) => {
   }
 
   return ret;
+};
+
+export const turnosRestantes = (game) =>
+  getDificultad(game.dificultad).cantMaxTurno - game.historial.length;
+
+export const getDificultad = (numero) => {
+  const valor = Number(numero);
+
+  const ret = {
+    obejetivo: 0,
+    cantMaxTurno: 0,
+    dificuldat: "",
+  };
+
+  switch (valor) {
+    case 1:
+      ret.obejetivo = 100;
+      ret.cantMaxTurno = 10;
+      ret.dificuldat = "Facil";
+      break;
+    case 2:
+      ret.obejetivo = 250;
+      ret.cantMaxTurno = 10;
+      ret.dificuldat = "Medio";
+      break;
+    case 3:
+      ret.obejetivo = 400;
+      ret.cantMaxTurno = 15;
+      ret.dificuldat = "Dificil";
+      break;
+    case 4:
+      ret.obejetivo = 550;
+      ret.cantMaxTurno = 20;
+      ret.dificuldat = "Imposible";
+      break;
+
+    default:
+      ret.obejetivo = 999999;
+      ret.cantMaxTurno = 999999;
+      ret.dificuldat = "Infinito";
+      break;
+  }
+
+  return ret;
+};
+
+export const toggleBtnUserStatus = (
+  tiradasEnElTurno,
+  historialLength,
+  dadosSelecionadosLength
+) => {
+  const butTirar = document.getElementById("btn-tirar");
+  const butFinalizar = document.getElementById("btn-finalizar");
+
+  if (tiradasEnElTurno === 0 && historialLength < 2) {
+    butTirar.classList.add("brillar");
+  } else {
+    butTirar.classList.remove("brillar");
+  }
+
+  if (tiradasEnElTurno >= 3 || dadosSelecionadosLength === 5) {
+    butTirar.classList.add("disableBTN");
+  } else {
+    butTirar.classList.remove("disableBTN");
+  }
+
+  if (dadosSelecionadosLength === 0) {
+    butFinalizar.classList.add("disableBTN");
+  } else {
+    butFinalizar.classList.remove("disableBTN");
+  }
+};
+
+export const toggleBtnAreaDeJuego = (
+  valoresGuardadosLength,
+  dadosDeLaRonda
+) => {
+  const butGrd = document.getElementById("guardarDados");
+  const butJugarMs = document.getElementById("jugarMesa");
+
+  if (valoresGuardadosLength === 0) {
+    butGrd.classList.add("disableBTN");
+  } else {
+    butGrd.classList.remove("disableBTN");
+  }
+
+  if (dadosDeLaRonda.every((elem) => elem === 0)) {
+    butJugarMs.classList.add("disableBTN");
+  } else {
+    butJugarMs.classList.remove("disableBTN");
+  }
+};
+
+export const chequeoDeTurnos = (cant) => {
+  const contTurn = document.getElementById("ContadorDeTurnos");
+
+  if (cant > 1) {
+    switch (cant) {
+      case 4:
+        contTurn.classList.add("turnos3");
+        break;
+      case 3:
+        contTurn.classList.remove("turnos3");
+        contTurn.classList.add("turnos2");
+        break;
+      case 2:
+        contTurn.classList.remove("turnos2");
+        contTurn.classList.add("turnos1");
+        break;
+
+      default:
+        contTurn.classList.remove("turnos1");
+        contTurn.classList.remove("turnos2");
+        contTurn.classList.remove("turnos3");
+        break;
+    }
+  }
 };

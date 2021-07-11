@@ -7,6 +7,7 @@ const GameProvider = ({ children }) => {
     dadosDeLaRonda: [0, 0, 0, 0, 0],
     historial: [],
     tiradasEnElTurno: 0,
+    dificultad: "1"
   });
 
   const data = { game, setGame };
