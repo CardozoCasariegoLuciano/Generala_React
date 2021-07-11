@@ -3,8 +3,8 @@
   top: 180px;
   left: 0px;
   color: #eee;
-  z-index: 20;   
-  transition: all .3s;
+  z-index: 20;
+  transition: all 0.3s;
 
   cursor: pointer;
 }
@@ -34,7 +34,7 @@
   top: -20px;
   left: -200px;
   background-color: #333;
-  border-radius: 0px 5px 5px 0px;  
+  border-radius: 0px 5px 5px 0px;
   overflow-y: scroll;
   padding: 10px 0px;
 
@@ -74,40 +74,36 @@
   background-color: rgba($color: #fff, $alpha: 0.1);
 }
 
-.mostrarHistorial{
-    left: 200px;
+.mostrarHistorial {
+  left: 200px;
 }
 
-.historial_puntos{
-
-  span{
+.historial_puntos {
+  span {
     display: block;
     margin-top: 3px;
   }
 }
 
-.historial_jugada{
+.historial_jugada {
   margin-top: 8px;
-  span{
+  span {
     display: block;
     margin-top: 3px;
     color: gold;
   }
 }
 
-.historial_dados_tit{
+.historial_dados_tit {
   margin-top: 8px;
 }
 
-.historial_dados{
+.historial_dados {
   margin-top: 5px;
   display: flex;
   justify-content: space-evenly;
 }
 
-.dadoHistorial{
+.dadoHistorial {
   font-size: 2rem;
 }
-
-
-

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import GameContext from "../../context/gameContext";
@@ -9,7 +9,7 @@ import {
   getMaxCombination,
 } from "../../utils/functions";
 import "./userStatus.scss";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 
 const UserStatus = () => {
   const { user, setUser } = useContext(UserNameContext);
@@ -17,31 +17,69 @@ const UserStatus = () => {
 
   const [showDice, setShowDice] = useState(false);
 
-  const generarDados = () => {
-    const datosgenerados = [0, 0, 0, 0, 0].map(
-      (n) => Math.floor(Math.random() * 6) + 1
-    );
-    const guardarDados = dadosDelUser(
-      datosgenerados,
-      user.dadosSelecionados.length
-    );
+  useEffect(() => {
+    toggleBtn();
+  }, [game.tiradasEnElTurno, user.dadosSelecionados]);
 
-    setGame({ ...game, dadosDeLaRonda: guardarDados });
+  const toggleBtn = () => {
+    const butTirar = document.getElementById("btn-tirar");
+    const butFinalizar = document.getElementById("btn-finalizar");
+
+    if (game.tiradasEnElTurno === 0 && game.historial.length < 2) {
+      butTirar.classList.add("brillar");
+    } else {
+      butTirar.classList.remove("brillar");
+    }
+
+    if (game.tiradasEnElTurno >= 3 || user.dadosSelecionados.length === 5) {
+      butTirar.classList.add("disableBTN");
+    } else {
+      butTirar.classList.remove("disableBTN");
+    }
+
+    if (user.dadosSelecionados.length === 0) {
+      butFinalizar.classList.add("disableBTN");
+    } else {
+      butFinalizar.classList.remove("disableBTN");
+    }
+
+    console.log(butTirar);
+  };
+
+  const generarDados = () => {
+    if (game.tiradasEnElTurno !== 3 && user.dadosSelecionados.length !== 5) {
+      const datosgenerados = [0, 0, 0, 0, 0].map(
+        (n) => Math.floor(Math.random() * 6) + 1
+      );
+      const guardarDados = dadosDelUser(
+        datosgenerados,
+        user.dadosSelecionados.length
+      );
+
+      setGame({
+        ...game,
+        dadosDeLaRonda: guardarDados,
+        tiradasEnElTurno: game.tiradasEnElTurno + 1,
+      });
+    }
   };
 
   const sumarPuntos = () => {
-    const data = getMaxCombination(user.dadosSelecionados);
+    if (user.dadosSelecionados.length > 0) {
+      const data = getMaxCombination(user.dadosSelecionados);
 
-    console.log(data);
+      setUser({
+        ...user,
+        puntos: user.puntos + data.puntos,
+        dadosSelecionados: [],
+      });
 
-    setUser({
-      ...user,
-      puntos: user.puntos + data.puntos,
-      dadosSelecionados: [],
-    });
-
-    setGame({ ...game, dadosDeLaRonda: [0, 0, 0, 0, 0] });
-    setGame({ ...game, historial: game.historial.concat([data]) });
+      setGame({
+        dadosDeLaRonda: [0, 0, 0, 0, 0],
+        historial: game.historial.concat([data]),
+        tiradasEnElTurno: 0,
+      });
+    }
   };
 
   const handleClickDice = () => {
@@ -78,31 +116,41 @@ const UserStatus = () => {
               Como jugar
             </Link>
           </div>
-          <button className="btn_header btn-tirar" onClick={generarDados}>
-            Tirar
+          <button
+            className="btn_header btn-tirar"
+            id="btn-tirar"
+            onClick={generarDados}
+          >
+            Tirar {game.tiradasEnElTurno}/3
           </button>
-          <button className="btn_header btn-finalizar" onClick={sumarPuntos}>
-            Finalizar turno
+          <button
+            className="btn_header btn-finalizar"
+            id="btn-finalizar"
+            onClick={sumarPuntos}
+          >
+            Jugar mano
           </button>
         </div>
 
-        <div className="dadosJuntados">
-          <h3>
-            Dados <span>guardados</span>
-          </h3>
-          {showDice ? (
-            <IoIosArrowUp
-              className="arrowDadosGuardados"
-              onClick={handleClickDice}
-            />
-          ) : (
-            <IoIosArrowDown
-              className="arrowDadosGuardados"
-              onClick={handleClickDice}
-            />
-          )}
+        <div className="dadosJuntados" id="dadosGuardados">
+          <div className="titleSection">
+            <h3>
+              Dados <span>guardados</span>
+            </h3>
+            {showDice ? (
+              <ImArrowRight2
+                className="arrowDadosGuardados"
+                onClick={handleClickDice}
+              />
+            ) : (
+              <ImArrowLeft2
+                className="arrowDadosGuardados"
+                onClick={handleClickDice}
+              />
+            )}
+          </div>
 
-          <div className="dadosGuardados" id="dadosGuardados">
+          <div className="dadosGuardados">
             <div className="siluetaDado">
               {convertirDado(Number(user.dadosSelecionados[0]), "dadoGuardado")}
             </div>

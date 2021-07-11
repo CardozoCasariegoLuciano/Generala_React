@@ -5,7 +5,7 @@ import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 import { convertirDado } from "../../utils/functions";
 
 const Historial = () => {
-  const { game, setGame } = useContext(GameContext);
+  const { game } = useContext(GameContext);
   const [showHistorial, setShowHistorial] = useState(false);
 
   const mostrarHistorial = () => {

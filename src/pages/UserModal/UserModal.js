@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import "./userModal.scss";
 import { useHistory } from "react-router";
 import UserNameContext from "../../context/userContex";
+import GameContext from "../../context/gameContext";
 
 const UserModal = () => {
-  const { user ,setUser } = useContext(UserNameContext);
+  const { setUser } = useContext(UserNameContext);
+  const { setGame } = useContext(GameContext);
   const history = useHistory();
   const [userName, setUserName] = useState("");
 
@@ -15,12 +17,18 @@ const UserModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(userName === ""){
-      setUser({...user, nombre:"Jugador anonimo"})
-    }else{
-      setUser({...user, nombre: userName})
+    if (userName === "") {
+      setUser({ puntos: 0, dadosSelecionados: [], nombre: "Jugador anonimo" });
+    } else {
+      setUser({ puntos: 0, dadosSelecionados: [], nombre: userName });
     }
-    
+
+    setGame({
+      dadosDeLaRonda: [0, 0, 0, 0, 0],
+      historial: [],
+      tiradasEnElTurno: 0,
+    });
+
     history.push("/juego");
   };
 
