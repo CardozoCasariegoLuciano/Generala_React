@@ -1,18 +1,24 @@
 import UserNameContext from "../../context/userContex";
 
 import React, { useContext, useEffect, useState } from "react";
-import { convertirDado, getMaxCombination } from "../../utils/functions";
+import {
+  convertirDado,
+  getMaxCombination,
+  setDStyles,
+} from "../../utils/functions";
 import "./areaDeJuego.scss";
 import "./dicePosition.scss";
+import GameContext from "../../context/gameContext";
 
-const AreaDeJuego = ({ dados }) => {
+const AreaDeJuego = () => {
   const { user, setUser } = useContext(UserNameContext);
+  const { game, setGame } = useContext(GameContext);
 
   const [dadosEnElTablero, setDadosEnElTablero] = useState([]);
 
   useEffect(() => {
-    setDadosEnElTablero(dados);
-  }, [dados]);
+    setDadosEnElTablero(game.dadosDeLaRonda);
+  }, [game.dadosDeLaRonda]);
 
   const dadosGuardados = [];
   const valoresGuardados = [];
@@ -38,17 +44,6 @@ const AreaDeJuego = ({ dados }) => {
     }
   };
 
-  const setDStyles = (undado, ind) => {
-    let ret = "";
-    let randPosition = Math.floor(Math.random() * 3) + 1;
-
-    if (undado !== 0) {
-      ret = `dado${ind}_${randPosition}`;
-    }
-
-    return ret;
-  };
-
   const guardadDados = () => {
     if (valoresGuardados.length !== 0) {
       setUser({
@@ -70,6 +65,8 @@ const AreaDeJuego = ({ dados }) => {
       puntos: user.puntos + data.puntos,
       dadosSelecionados: [],
     });
+
+    setGame({ ...game, historial: game.historial.concat([data]) });
 
     setDadosEnElTablero([0, 0, 0, 0, 0]);
   };

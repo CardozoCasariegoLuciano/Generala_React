@@ -1,0 +1,113 @@
+.historial {
+  position: absolute;
+  top: 180px;
+  left: 0px;
+  color: #eee;
+  z-index: 20;   
+  transition: all .3s;
+
+  cursor: pointer;
+}
+
+.historial_tag {
+  position: relative;
+  width: 20px;
+  word-wrap: break-word;
+  font-family: monospace;
+  height: 220px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #333;
+  border-radius: 0px 10px 10px 0px;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+
+.historial_arrow {
+  margin-top: 10px;
+}
+
+.historialData {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: -20px;
+  left: -200px;
+  background-color: #333;
+  border-radius: 0px 5px 5px 0px;  
+  overflow-y: scroll;
+  padding: 10px 0px;
+
+  h3 {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+
+    span {
+      font-weight: normal;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+
+    &-thumb {
+      background: darkgray;
+      border-radius: 50px;
+    }
+
+    &-track {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.Historial_jugada {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid darkgrey;
+  border-top: 1px solid darkgrey;
+  background-color: rgba($color: #fff, $alpha: 0.1);
+}
+
+.mostrarHistorial{
+    left: 200px;
+}
+
+.historial_puntos{
+
+  span{
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+.historial_jugada{
+  margin-top: 8px;
+  span{
+    display: block;
+    margin-top: 3px;
+    color: gold;
+  }
+}
+
+.historial_dados_tit{
+  margin-top: 8px;
+}
+
+.historial_dados{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dadoHistorial{
+  font-size: 2rem;
+}
+
+
+

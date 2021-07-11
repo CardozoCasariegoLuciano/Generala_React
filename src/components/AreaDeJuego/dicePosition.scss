@@ -5,39 +5,40 @@
     position: relative;
     transform: rotate(10deg);
   }
-  
+ 
   .dado0_2 {
     position: relative;
-    top: 45px;
-    left: 15px;
+    top: 130px;
+    left: 30%;
     transform: rotate(48deg);
   }
-  
+   
   .dado0_3 {
     position: relative;
     top: 200px;
-    left: 30px;
+    left: 15%;
     transform: rotate(100deg);
   }
   
   //Dado 1
   .dado1_1 {
     position: relative;
-    top: 35px;
+    top: 210px;
+    left: 15%;
     transform: rotate(50deg);
   }
   
   .dado1_2 {
     position: relative;
     top: 80px;
-    left: -30px;
+    left: -5%;
     transform: rotate(-60deg);
   }
   
   .dado1_3 {
     position: relative;
-    top: 175px;
-    left: 30px;
+    top: 35px;
+    left:5%;
     transform: rotate(150deg);
   }
   
@@ -50,57 +51,59 @@
   
   .dado2_2 {
     position: relative;
-    top: 110px;
+    top: 200px;
+    left: 15%;
     transform: rotate(70deg);
   }
   
   .dado2_3 {
     position: relative;
     top: 110px;
+    left: 10%;
     transform: rotate(190deg);
   }
   
   //Dado 3
   .dado3_1 {
     position: relative;
-    top: 80px;
-    left: -30px;
+    top: 0px;
+    left: -5%;    
     transform: rotate(320deg);
   }
   
   .dado3_2 {
     position: relative;
     top: 180px;
-    left: -50px;
+    left: 20%;
     transform: rotate(250deg);
   }
   
   .dado3_3 {
     position: relative;
     top: 80px;
-    left: 30px;
+    left:20%;
     transform: rotate(20deg);
   }
   
   //Dado 4
   .dado4_1 {
     position: relative;
-    top: 200px;
-    left: 15px;
+    top: 255px;
+    left: 2%;
     transform: rotate(-100deg);
   }
   
   .dado4_2 {
     position: relative;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    
     transform: rotate(-82deg);
   }
   
   .dado4_3 {
     position: relative;
-    top: 150px;
-    left: -40px;
+    top: 280px;
+    left: -80%;
     transform: rotate(-55deg);
   }
-  
+ 

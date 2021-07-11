@@ -74,3 +74,25 @@ export const getMaxCombination = (lista) => {
 
   return ret;
 };
+
+export const setDStyles = (undado, ind) => {
+  let ret = "";
+  let randPosition = Math.floor(Math.random() * 3) + 1;
+
+  if (undado !== 0) {
+    ret = `dado${ind}_${randPosition}`;
+  }
+
+  return ret;
+};
+
+
+export const dadosDelUser = (listaDeDados, cant) => {
+  const ret = listaDeDados;
+
+  for (let i = 0; i < cant; i++) {
+    ret.pop();
+  }
+
+  return ret;
+};

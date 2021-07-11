@@ -1,5 +1,7 @@
 .areaDeDados {
+  
   height: 60vh;
+  min-height: 430px;
   width: 100%;
   border-radius: 10px;
   border: 2px dotted gold;
@@ -31,16 +33,16 @@
   display: flex;
   justify-content: space-around;
 }
-.guardarDados {
+.guardarDados,
+.jugarMesa {
   background-color: #eee;
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.jugarMesa {
-  background-color: #eee;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
+@media (max-width: 800px) {
+  .dadoTablero {
+    font-size: 3.5rem;
+  }
 }

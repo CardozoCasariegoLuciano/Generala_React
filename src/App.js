@@ -5,10 +5,12 @@ import { UserNameProvider } from "./context/userContex";
 import Tablero from "./pages/Tablero/Tablero";
 import UserModal from "./pages/UserModal/UserModal";
 import ComoJugar from "./pages/ComoJugar/ComoJugar"
+import { GameProvider } from "./context/gameContext";
 
 const App = () => {
   return (
     <div>
+      <GameProvider>
       <UserNameProvider>
         <BrowserRouter>
           <Switch>
@@ -18,6 +20,7 @@ const App = () => {
           </Switch>
         </BrowserRouter>
       </UserNameProvider>
+      </GameProvider>
     </div>
   );
 };
