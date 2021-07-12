@@ -2,11 +2,43 @@
   box-sizing: border-box;
   color: #eee;
 }
-.dadoDefault {
+.dadoDefault{
   box-sizing: border-box;
   color: #eee;
   font-size: 4.5rem;
+
+  position: relative;
+  top: 60%;
 }
+
+.dadoRandomPosition:nth-child(1) {
+ position: relative;
+ left: 30%;
+ top :200px;
+}
+
+.dadoRandomPosition:nth-child(2) {
+  position: relative;
+  left: 5%;
+  top :100px;
+ }
+
+ .dadoRandomPosition:nth-child(3) {
+  position: relative;
+  top :20px;
+ }
+
+ .dadoRandomPosition:nth-child(4) {
+  position: relative;
+  left: -5%;
+  top :100px;
+ }
+
+ .dadoRandomPosition:nth-child(5) {
+  position: relative;
+  left: -30%;
+  top :200px;
+ }
 
 
 

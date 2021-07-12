@@ -79,6 +79,8 @@ export const setDStyles = (undado, ind) => {
 
   if (undado !== 0) {
     ret = `dado${ind}_${randPosition}`;
+  }else{
+    ret = `dadoRandomPosition`;
   }
 
   return ret;
@@ -116,17 +118,17 @@ export const getDificultad = (numero) => {
       ret.dificuldat = "Facil";
       break;
     case 2:
-      ret.obejetivo = 250;
+      ret.obejetivo = 230;
       ret.cantMaxTurno = 10;
       ret.dificuldat = "Medio";
       break;
     case 3:
-      ret.obejetivo = 400;
+      ret.obejetivo = 350;
       ret.cantMaxTurno = 15;
       ret.dificuldat = "Dificil";
       break;
     case 4:
-      ret.obejetivo = 550;
+      ret.obejetivo = 500;
       ret.cantMaxTurno = 20;
       ret.dificuldat = "Imposible";
       break;
