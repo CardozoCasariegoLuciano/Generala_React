@@ -1,0 +1,25 @@
+.notFound{
+    min-height: 100vh;
+    background-color: rgb(10, 70, 10);
+
+    color: #eee;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h3{
+        margin-top: -250px;
+    }
+}
+
+.btn_volverAlJuego{
+    margin-top: 20px;
+    color: #eee;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration:underline;
+    }
+}

@@ -1,0 +1,85 @@
+.finDelJuego {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  transition: all 3s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: -100;
+}
+
+.derrota {
+  background-color: rgb(15, 15, 30);
+  color: #eee;
+  z-index: 100;
+}
+
+.victoria {
+  background-color: skyblue;
+  color: #333;
+  z-index: 100;
+}
+
+.finConteiner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.finGano {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: darkblue;
+  animation: GanarAnimation 0.2s linear infinite both alternate 0.5s;
+}
+
+.finPerdio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: perderAnimation 1s linear infinite both alternate;
+}
+
+.volerAJugar {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_IrMenuPRnc,
+.btn_VolverAJugar {
+  text-decoration: none;
+  color: #eee;
+  font-size: 1.3rem;
+  background-color: rgb(15, 15, 30);
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: 1 px solid lightgray;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn_VolverAJugar {
+  margin-top: 10px;
+}
+
+@keyframes perderAnimation {
+  from {
+    color: tomato;
+  }
+}
+
+@keyframes GanarAnimation {
+  from {
+    transform: translateY(10px);
+  }
+}

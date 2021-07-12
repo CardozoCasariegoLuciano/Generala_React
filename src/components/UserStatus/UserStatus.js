@@ -85,7 +85,6 @@ const UserStatus = () => {
               Jugador: <span>{user.nombre}</span>
             </h3>
           </div>
-
           <div className="puntosUsuario">
             <h3>
               Puntos:{" "}

@@ -97,6 +97,9 @@ export const dadosDelUser = (listaDeDados, cant) => {
 export const turnosRestantes = (game) =>
   getDificultad(game.dificultad).cantMaxTurno - game.historial.length;
 
+export const puntosFaltantes = (game, user) =>
+  getDificultad(game.dificultad).obejetivo - user.puntos;
+
 export const getDificultad = (numero) => {
   const valor = Number(numero);
 
@@ -108,7 +111,7 @@ export const getDificultad = (numero) => {
 
   switch (valor) {
     case 1:
-      ret.obejetivo = 100;
+      ret.obejetivo = 150;
       ret.cantMaxTurno = 10;
       ret.dificuldat = "Facil";
       break;
