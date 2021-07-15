@@ -41,6 +41,17 @@ const UserModal = () => {
     history.push("/juego");
   };
 
+  const multiplayer = () => {
+
+    const multiplayetBTN = document.getElementById("multiplayer")
+
+    multiplayetBTN.classList.toggle("mostrarEtiqueta")
+
+    console.log(multiplayetBTN)
+
+
+  }
+
   return (
     <div className="UserModal">
       <div className="userModalConteiner">
@@ -48,8 +59,9 @@ const UserModal = () => {
           <div className="singlePLayer">
             <ImUser />
           </div>
-          <div className="twoPLayers">
+          <div className="twoPLayers" id="multiplayer" onClick={multiplayer}>
             <ImUsers />
+            <p className="etiqueta_texto">Proximamente</p>
           </div>
         </div>
 

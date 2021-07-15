@@ -37,7 +37,7 @@ const ComoJugar = () => {
           <ul>
             <li>
               oprima <span className="palabraMarcada">Tirar</span> para lanzar
-              los dados
+              los dados. Tienes 3 tiros por turno
             </li>
             <li>
               seleccione los dados que quiera conservar para la proxima ronda
@@ -65,21 +65,9 @@ const ComoJugar = () => {
           <h3> Como ganar:</h3>        
 
          
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi tenetur voluptate ipsum. Quidem alias dignissimos a recusandae corrupti deleniti voluptatum itaque vitae cupiditate, expedita debitis accusamus consequatur, nesciunt fugiat!</p>
-        </div>
-
-        {/* MAS INFO */}
-        <div className="masInfo">
-          <p>
-            Para mas informacion ingrese a{" "}
-            <a
-              rel="noreferrer"
-              href="http://www.plastigal.com.ar/sites/default/files/reglamentos/reglamento-generala.pdf"
-              target="_blank"
-            >
-              Reglas oficiales
-            </a>
-          </p>
+         <p>Consiga los puntos requeridos antes de quedarte sin turnos. <br/>
+            los puntos y la cantidad de turnos depende de la dificultad seleccionada.
+         </p>
         </div>
       </div>
     </div>

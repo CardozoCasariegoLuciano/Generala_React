@@ -29,8 +29,10 @@ const AreaDeJuego = () => {
 
   const selecionarDado = (undado, ind) => {
     if (undado !== 0) {
-      const aDice = document.getElementById("dado" + ind);
+      const aDice = document.getElementById("dado" + ind);  
 
+      console.log(aDice)
+      
       const valodDado = aDice.dataset.valor;
 
       if (dadosGuardados.includes(aDice)) {
