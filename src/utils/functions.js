@@ -33,7 +33,6 @@ export const convertirDado = (unNumero, unaClase) => {
       return <FaDiceFive className={"dado " + unaClase} />;
     case 6:
       return <FaDiceSix className={"dado " + unaClase} />;
-
     default:
       break;
   }
