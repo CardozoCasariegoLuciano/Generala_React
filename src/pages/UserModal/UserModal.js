@@ -71,14 +71,14 @@ const UserModal = () => {
             <label htmlFor="nombre">Ingresa tu nombre</label>
             <input
               type="text"
-              placeholder="inglesaTunombre"
+              placeholder="ingresa tu nombre"
               id="nombre"
               name="name"
               value={gamedata.name}
               onChange={handleChange}
             />
 
-            <label htmlFor="dificultad"> Elije la dificultad</label>
+            <label htmlFor="dificultad">Elija una dificultad</label>
             <select
               name="dificultad"
               id="dificultad"

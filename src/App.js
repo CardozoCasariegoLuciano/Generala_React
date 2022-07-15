@@ -15,7 +15,7 @@ const App = () => {
       <GameProvider>
         <FinProvider>
           <UserNameProvider>
-            <BrowserRouter>
+            <BrowserRouter basename={"/generala"}>
               <Switch>
                 <Route exact path="/" component={UserModal} />
                 <Route exact path="/juego" component={Tablero} />
